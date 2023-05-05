@@ -31,6 +31,7 @@ public class Smarthouse {
                 JsonNode jsonNode = mapper.readValue(in, JsonNode.class);
                 jsonString = mapper.writeValueAsString(jsonNode);
             } catch (Exception e) {
+                e.printStackTrace();
                 throw new RuntimeException(e);
             }
             t.getResponseHeaders().set("Content-Type", "application/json");
