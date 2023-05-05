@@ -2,6 +2,7 @@ package com.alexkzk;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -26,7 +27,7 @@ public class Smarthouse {
         @Override
         public void handle(HttpExchange t) throws IOException {
             String jsonString;
-            try (InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream("smarthouse-data.json")) {
+            try (InputStream in = getClass().getResource("/resources/smarthouse-data.json").openStream()) {
                 ObjectMapper mapper = new ObjectMapper();
                 JsonNode jsonNode = mapper.readValue(in, JsonNode.class);
                 jsonString = mapper.writeValueAsString(jsonNode);
