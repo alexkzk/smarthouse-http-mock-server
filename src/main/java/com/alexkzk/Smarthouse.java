@@ -18,6 +18,7 @@ public class Smarthouse {
         server.createContext("/smarthouse/v2/summary", new MyHandler());
         server.setExecutor(null);
         server.start();
+        System.out.println("ready to accept connections");
     }
 
     static class MyHandler implements HttpHandler {
